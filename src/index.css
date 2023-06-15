@@ -6,7 +6,10 @@ html,
 body,
 #root,
 .app {
+    width: 100%;
     height: 100%;
     background-color: #10101a;
     @apply text-white;
+    scrollbar-width: thin;
+    scrollbar-color: red blue;
 }

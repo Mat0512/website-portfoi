@@ -1,5 +1,6 @@
 import React, { RefObject, useCallback } from "react";
 import { LinkRefsDimension } from "./";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
 interface LinkProps {
     label: string;
@@ -28,12 +29,12 @@ const Link = ({
                     }));
                 }
             }, [])}
-            className={`flex justify-center items-center px-4 h-9 text-base text-blue border border-blue`}
+            className={`flex justify-center items-center px-4 h-9 text-lg md:text-2xl lg:text-base text-white lg:text-blue lg:border lg:border-blue`}
             onClick={() => {
                 setSelectedPage(lowerCaseName);
             }}
         >
-            <p className="drop-shadow-blue">{label}</p>
+            <p className="drop-shadow-white lg:drop-shadow-blue">{label}</p>
         </button>
     );
 };

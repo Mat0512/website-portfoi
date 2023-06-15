@@ -4,8 +4,8 @@ import Button from "../../components/button";
 
 const Projects = () => {
     return (
-        <div className="w-full h-full max-w-6xl mx-auto flex flex-col justify-center items-center gap-3">
-            <p className="text-[36px] text-blue drop-shadow-blue self-start">
+        <div className="mx-auto w-full min-h-screen max-w-6xl flex flex-col justify-center items-center gap-6 lg:gap-3">
+            <p className="text-[48px] text-blue drop-shadow-blue self-start lg:text-[36px]">
                 Projects
             </p>
             <div className="w-full border border-blue p-7 flex flex-col gap-4">
