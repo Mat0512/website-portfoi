@@ -13,3 +13,11 @@ body,
     scrollbar-width: thin;
     scrollbar-color: red blue;
 }
+
+.snap-scrollbar-container {
+    scroll-snap-type: y mandatory;
+}
+
+.snap-scrollbar-children {
+    scroll-snap-align: start;
+}

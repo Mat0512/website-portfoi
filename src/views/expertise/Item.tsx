@@ -1,5 +1,3 @@
-import React from "react";
-
 interface ItemProps {
     image: string;
     label: string;
@@ -9,7 +7,7 @@ interface ItemProps {
 
 const Item = ({ image, label, imgWidthHeight, labelColor }: ItemProps) => {
     return (
-        <div className="w-[90px] p-2 flex flex-col items-center">
+        <div className="w-[33.33%] p-4 md:w-[92px] lg:w-[80px] lg:p-3 flex flex-col items-center">
             <img
                 className={`w-[${imgWidthHeight || "50px"}] h-auto`}
                 src={image}

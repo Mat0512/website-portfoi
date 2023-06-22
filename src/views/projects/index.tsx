@@ -1,11 +1,20 @@
-import React from "react";
+import { motion } from "framer-motion";
 import Tag from "../../components/tags/Tag";
 import Button from "../../components/button";
 
-const Projects = () => {
+import { Props } from "../../utils/animationUtils";
+
+const Projects = ({ animation }: Props) => {
     return (
-        <div className="mx-auto w-full min-h-screen max-w-6xl flex flex-col justify-center items-center gap-6 lg:gap-3">
-            <p className="text-[48px] text-blue drop-shadow-blue self-start lg:text-[36px]">
+        <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.5 }}
+            variants={animation}
+            transition={{ ease: "easeOut", duration: 0.7 }}
+            className="mx-auto w-full min-h-screen max-w-6xl flex flex-col justify-center items-center gap-6 py-[70px] lg:gap-3"
+        >
+            <p className="text-[48px] text-blue leading-none drop-shadow-blue self-start lg:text-[36px]">
                 Projects
             </p>
             <div className="w-full border border-blue p-7 flex flex-col gap-4">
@@ -73,7 +82,7 @@ const Projects = () => {
                     />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

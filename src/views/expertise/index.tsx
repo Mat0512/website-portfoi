@@ -1,4 +1,7 @@
 import Item from "./Item";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { motion } from "framer-motion";
+import { Props } from "../../utils/animationUtils";
 
 import reactIcon from "../../assets/react-lg.svg";
 import tailwindIcon from "../../assets/tailwind-css.svg";
@@ -15,18 +18,25 @@ import slimIcon from "../../assets/slim.svg";
 import mysqlIcon from "../../assets/mysql.svg";
 import firebaseIcon from "../../assets/firebase.svg";
 
-const Expertise = () => {
+const Expertise = ({ animation }: Props) => {
     return (
-        <div className="mx-auto w-full max-w-2xl min-h-screen text-center flex flex-col justify-center items-center pt-10 lg:max-w-4xl">
-            <p className="text-[28px] drop-shadow-white md:text-[36px] leading-none mb-10">
+        <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.5 }}
+            variants={animation}
+            transition={{ ease: "easeOut", duration: 2 }}
+            className="mx-auto w-full max-w-2xl min-h-screen text-center flex flex-col justify-center items-center py-[70px] lg:max-w-4xl"
+        >
+            <p className="text-[28px] drop-shadow-white md:text-[36px] leading-none mb-5 md:mb-10">
                 Languages, Frameworks & Libraries
             </p>
-            <div className="w-full flex flex-col justify-center items-center gap-5 md:gap-10 lg:flex-row">
-                <div className="border border-blue w-full px-3 py-7">
+            <div className="w-full flex flex-col justify-center items-center gap-5 md:gap-10 lg:flex-row ">
+                <div className="border border-blue w-full px-3 py-7 md:max-h-[306px]">
                     <p className="text-blue text-[28px] md:text-[32px] text-left">
                         Front End
                     </p>
-                    <div className="mx-auto p-5 flex flex-wrap">
+                    <div className="flex flex-wrap">
                         <Item image={reactIcon} label={"React"} />
                         <Item image={tailwindIcon} label={"Tailwind"} />
                         <Item image={materialIcon} label={"Material UI"} />
@@ -35,26 +45,51 @@ const Expertise = () => {
                         <Item image={cssIcon} label={"CSS"} />
                     </div>
                 </div>
-                <div className="border border-orchid w-full px-3 py-7">
+                <div className="border border-orchid w-full px-3 py-7 md:max-h-[350px]">
                     <p className="text-orchid text-[28px] md:text-[32px] text-left">
                         Back End
                     </p>
-                    <div className="p-2 flex flex-wrap gap-2">
+                    <div className="flex flex-wrap">
                         <Item
                             image={expressIcon}
                             imgWidthHeight="50px"
                             label={"Express"}
+                            labelColor="orchid"
                         />
-                        <Item image={nodeIcon} label={"Node JS"} />
-                        <Item image={mongooseIcon} label={"Mongoose"} />
-                        <Item image={mongoIcon} label={"MongoDB"} />
-                        <Item image={slimIcon} label={"Slim Php"} />
-                        <Item image={mysqlIcon} label={"mySQL"} />
-                        <Item image={firebaseIcon} label={"Firebase"} />
+                        <Item
+                            image={nodeIcon}
+                            label={"Node JS"}
+                            labelColor="orchid"
+                        />
+                        <Item
+                            image={mongooseIcon}
+                            label={"Mongoose"}
+                            labelColor="orchid"
+                        />
+                        <Item
+                            image={mongoIcon}
+                            label={"MongoDB"}
+                            labelColor="orchid"
+                        />
+                        <Item
+                            image={slimIcon}
+                            label={"Slim Php"}
+                            labelColor="orchid"
+                        />
+                        <Item
+                            image={mysqlIcon}
+                            label={"mySQL"}
+                            labelColor="orchid"
+                        />
+                        <Item
+                            image={firebaseIcon}
+                            label={"Firebase"}
+                            labelColor="orchid"
+                        />
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

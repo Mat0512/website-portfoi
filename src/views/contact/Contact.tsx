@@ -1,8 +1,16 @@
+import { motion } from "framer-motion";
 import Button from "../../components/button";
+import { Props } from "../../utils/animationUtils";
 
-const Contact = () => {
+const Contact = ({ animation }: Props) => {
     return (
-        <div className="mx-auto w-full min-h-screen max-w-2xl flex flex-col justify-center items-center gap-3 lg:max-w-6xl">
+        <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.5 }}
+            variants={animation}
+            className="mx-auto px-5 w-full min-h-screen max-w-2xl flex flex-col justify-center items-center gap-3 lg:max-w-6xl"
+        >
             <p className="text-[48px] text-blue drop-shadow-blue leading-none mb-5">
                 Contact
             </p>
@@ -52,7 +60,7 @@ const Contact = () => {
                     />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

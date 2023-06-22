@@ -6,9 +6,14 @@ import useMediaQuery from "../../../hooks/useMediaQuery";
 import menuIcon from "../../../assets/menu-icon.png";
 import closeIcon from "../../../assets/close-icon.png";
 
+import { motion } from "framer-motion";
+
+import { ScrollToType } from "../../../hooks/useHorizontalScroll";
+
 interface NavProps {
     selectedPage: string;
     setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
+    handleScrollTo?: ScrollToType;
 }
 
 export interface LinkRefsDimension {
@@ -19,14 +24,29 @@ export interface LinkRefsDimension {
     contact: HTMLButtonElement | null;
 }
 
-const Nav = ({ selectedPage, setSelectedPage }: NavProps) => {
+const navVariant = {
+    open: {
+        width: "75%",
+        x: 0,
+        opacity: 1,
+        transition: { type: "easeOut", duration: 0.5 },
+    },
+    closed: {
+        width: 0,
+        opacity: 0,
+        x: 1000,
+        transition: { type: "easeOut", duration: 1.5 },
+    },
+};
+
+const Nav = ({ selectedPage, setSelectedPage, handleScrollTo }: NavProps) => {
     //track active link's position and width for moving and resizing Active border
     const isAboveSmallScreens = useMediaQuery("(min-width: 1024px)");
-
     const [activeLinkDimension, setActiveLinkDimension] = useState({
         x: 0,
         width: 0,
     });
+
     const [isMenuToggled, setIsMenuToggled] = useState(false);
 
     const [linkRefsDimension, setLinkRefsDimension] =
@@ -37,9 +57,8 @@ const Nav = ({ selectedPage, setSelectedPage }: NavProps) => {
             projects: null,
             contact: null,
         });
-    const [screenSize, setScreenSize] = useState<number | null>(null);
 
-    //replace it with state and set it into callback ref
+    const [screenSize, setScreenSize] = useState<number | null>(null);
 
     useEffect(() => {
         const updateActiveLink = () => {
@@ -73,31 +92,31 @@ const Nav = ({ selectedPage, setSelectedPage }: NavProps) => {
                             x={activeLinkDimension.x}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
+                            handleScrollTo={handleScrollTo}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Home"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
+                            handleScrollTo={handleScrollTo}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Expertise"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
+                            handleScrollTo={handleScrollTo}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Experience"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
+                            handleScrollTo={handleScrollTo}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Projects"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
+                            handleScrollTo={handleScrollTo}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Contact"
                             setSelectedPage={setSelectedPage}
@@ -122,8 +141,13 @@ const Nav = ({ selectedPage, setSelectedPage }: NavProps) => {
                 )}
 
                 {/* Popup mobile menu */}
-                {!isAboveSmallScreens && isMenuToggled && (
-                    <div className="fixed right-0 top-0 w-5/6 h-full bg-[#2a2356] border border-l-blue flex flex-col justify-center items-center gap-5">
+                {!isAboveSmallScreens && (
+                    <motion.div
+                        initial={{ width: 0, x: 0, opacity: 0 }}
+                        animate={isMenuToggled ? "open" : "closed"}
+                        variants={navVariant}
+                        className="fixed right-0 top-0  h-full bg-[#2a2356] border border-l-blue flex flex-col justify-center items-center gap-5"
+                    >
                         <button
                             className="absolute p-5 top-0 right-0"
                             onClick={() => {
@@ -137,36 +161,31 @@ const Nav = ({ selectedPage, setSelectedPage }: NavProps) => {
                             />
                         </button>
                         <Link
-                            linkRefsDimension={linkRefsDimension}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Home"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Expertise"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Experience"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Projects"
                             setSelectedPage={setSelectedPage}
                         />
                         <Link
-                            linkRefsDimension={linkRefsDimension}
                             setLinkRefsDimension={setLinkRefsDimension}
                             label="Contact"
                             setSelectedPage={setSelectedPage}
                         />
-                    </div>
+                    </motion.div>
                 )}
             </nav>
         </>

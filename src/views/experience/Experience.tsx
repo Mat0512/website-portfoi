@@ -1,11 +1,20 @@
+import { motion } from "framer-motion";
 import Tag from "../../components/tags/Tag";
 import ctiLogo from "../../assets/CTI-icon.png";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { Props } from "../../utils/animationUtils";
 
-const Experience = () => {
+const Experience = ({ animation }: Props) => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     return (
-        <div className="mx-auto w-full min-h-screen max-w-2xl flex flex-col justify-center items-center lg:max-w-6xl">
+        <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.5 }}
+            variants={animation}
+            transition={{ ease: "easeOut", duration: 0.7 }}
+            className="mx-auto w-full min-h-screen max-w-2xl flex flex-col justify-center items-center lg:max-w-6xl"
+        >
             <p className="text-[39px] text-blue drop-shadow-blue md:text-[46px] md:self-start mb-5">
                 Work Experience
             </p>
@@ -56,7 +65,7 @@ const Experience = () => {
                     </div>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
 
