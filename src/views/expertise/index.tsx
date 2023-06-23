@@ -1,5 +1,4 @@
 import Item from "./Item";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import { Props } from "../../utils/animationUtils";
 
