@@ -41,7 +41,10 @@ const Projects = ({ animation }: Props) => {
                         color="orchid"
                         size="md"
                         onClick={() => {
-                            console.log("hello");
+                            window.open(
+                                "https://github.com/Mat0512/BatStateU-Alumni-Web-Portal.git",
+                                "_blank"
+                            );
                         }}
                     />
                 </div>
@@ -68,7 +71,10 @@ const Projects = ({ animation }: Props) => {
                         color="orchid"
                         size="md"
                         onClick={() => {
-                            console.log("hello");
+                            window.open(
+                                "https://github.com/Mat0512/website-portfolio-2.git",
+                                "_blank"
+                            );
                         }}
                     />
                 </div>
