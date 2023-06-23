@@ -13,7 +13,7 @@ const Experience = ({ animation }: Props) => {
             viewport={{ amount: 0.5 }}
             variants={animation}
             transition={{ ease: "easeOut", duration: 0.7 }}
-            className="mx-auto w-full min-h-screen max-w-2xl flex flex-col justify-center items-center lg:max-w-6xl"
+            className="mx-auto w-full min-h-screen max-w-2xl flex flex-col justify-center items-center lg:max-w-5xl"
         >
             <p className="text-[39px] text-blue drop-shadow-blue md:text-[46px] md:self-start mb-5">
                 Work Experience
@@ -42,7 +42,7 @@ const Experience = ({ animation }: Props) => {
                             </div>
                         )}
                     </div>
-                    <p className="text-sm md:text-base">
+                    <p className="text-sm">
                         Developed admin dashboard for one of their website.
                         Includes designing GUI, developed front-end, backend and
                         database.

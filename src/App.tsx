@@ -104,10 +104,7 @@ function App() {
                         >
                             <Projects animation={smallScreenAnimation} />
                         </div>
-                        <div
-                            id="contact"
-                            className="flex-none snap-start w-full h-full"
-                        >
+                        <div id="contact" className="snap-start w-full h-full">
                             <Contact animation={smallScreenAnimation} />
                         </div>
                     </div>

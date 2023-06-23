@@ -12,7 +12,7 @@ const Projects = ({ animation }: Props) => {
             viewport={{ amount: 0.5 }}
             variants={animation}
             transition={{ ease: "easeOut", duration: 0.7 }}
-            className="mx-auto w-full min-h-screen max-w-6xl flex flex-col justify-center items-center gap-6 py-[70px] lg:gap-3"
+            className="mx-auto w-full min-h-screen max-w-5xl flex flex-col justify-center items-center gap-6 py-[70px] lg:gap-3"
         >
             <p className="text-[48px] text-blue leading-none drop-shadow-blue self-start lg:text-[36px]">
                 Projects
@@ -62,15 +62,6 @@ const Projects = ({ animation }: Props) => {
                     <Tag text="Figma" />
                 </div>
                 <div className="flex gap-2">
-                    <Button
-                        type="default"
-                        text="Website Link"
-                        color="orchid"
-                        size="md"
-                        onClick={() => {
-                            console.log("hello");
-                        }}
-                    />
                     <Button
                         type="default"
                         text="Github Link"

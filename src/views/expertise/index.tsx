@@ -45,7 +45,7 @@ const Expertise = ({ animation }: Props) => {
                         <Item image={cssIcon} label={"CSS"} />
                     </div>
                 </div>
-                <div className="border border-orchid w-full px-3 py-7 md:max-h-[350px]">
+                <div className="border border-orchid w-full px-3 py-7 md:max-h-[306px]">
                     <p className="text-orchid text-[28px] md:text-[32px] text-left">
                         Back End
                     </p>
